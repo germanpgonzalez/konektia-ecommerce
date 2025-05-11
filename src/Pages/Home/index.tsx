@@ -1,11 +1,11 @@
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 
-const index = () => {
+const Home = () => {
   return (
     <>
       <Navbar />
-      <div className="text-black container mx-auto mt-50 mb-20">
+      <div className="text-black container mx-auto mt-48 min-h-screen">
         <h1>Página Home 💒</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam ipsum
@@ -19,4 +19,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Home;

@@ -1,6 +1,15 @@
+import Footer from "../../components/Footer";
+import Navbar from "../../components/Navbar";
 
-export const index = () => {
+const NotFound = () => {
   return (
-    <div>Página no encontrada ❌</div>
+    <>
+      <Navbar />
+      <h3 className="text-black container mx-auto mt-48 min-h-screen">Página no encontrada ❌</h3>
+      <Footer />
+    </>
   )
 }
+
+
+export default NotFound;

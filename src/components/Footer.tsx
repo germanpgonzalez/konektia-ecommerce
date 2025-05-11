@@ -5,7 +5,7 @@ import { AiFillTikTok } from "react-icons/ai";
 
 const Footer = () => {
   return (
-    <footer className="bg-primario text-white py-4 mt-30">
+    <footer className="bg-primario text-white py-4">
         <div>
             <ul className="flex justify-center gap-4 mt-4">
                 <li><BsWhatsapp /></li>

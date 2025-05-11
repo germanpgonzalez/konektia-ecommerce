@@ -1,14 +1,14 @@
 import Footer from "../../components/Footer"
 import Navbar from "../../components/Navbar"
 
-const index = () => {
+const Contacto = () => {
   return (
     <>
       <Navbar />
-      <div>Página Contacto 👋🏻</div>
+      <div className="text-black container mx-auto mt-48 min-h-screen">Página Contacto 👋🏻</div>
       <Footer />
     </>
   )
 }
 
-export default index
+export default Contacto
