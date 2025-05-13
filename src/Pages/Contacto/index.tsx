@@ -1,14 +1,13 @@
-import Footer from "../../components/Footer"
-import Navbar from "../../components/Navbar"
+import Layout from "../../Components/Layout";
 
 const Contacto = () => {
   return (
     <>
-      <Navbar />
-      <div className="text-black container mx-auto mt-48 min-h-screen">Página Contacto 👋🏻</div>
-      <Footer />
+      <Layout>
+        Página Contacto 👋🏻
+      </Layout>
     </>
-  )
-}
+  );
+};
 
-export default Contacto
+export default Contacto;

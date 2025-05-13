@@ -1,11 +1,9 @@
-import Footer from "../../components/Footer";
-import Navbar from "../../components/Navbar";
+import Layout from "../../Components/Layout";
+
 
 const Home = () => {
   return (
-    <>
-      <Navbar />
-      <div className="text-black container mx-auto mt-48 min-h-screen">
+    <Layout>
         <h1>Página Home 💒</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam ipsum
@@ -13,9 +11,7 @@ const Home = () => {
           Officia, ipsum! Dolores dignissimos veritatis, culpa tenetur
           blanditiis reprehenderit distinctio cupiditate!
         </p>
-      </div>
-      <Footer />
-    </>
+    </Layout>
   );
 };
 
