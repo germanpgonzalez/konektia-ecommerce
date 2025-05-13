@@ -61,8 +61,8 @@ const Navbar = () => {
             <li>
               <IoIosLogIn size={25} />
             </li>
-            <li>
-              <GrCart size={25} />
+            <li className="cursor-pointer">
+              <GrCart size={25}  />
             </li>
           </ul>
         </div>
