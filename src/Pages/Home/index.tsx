@@ -1,4 +1,5 @@
 import Layout from "../../Components/Layout";
+import { ProductList } from "../../Components/ProductList";
 
 
 const Home = () => {
@@ -11,6 +12,7 @@ const Home = () => {
           Officia, ipsum! Dolores dignissimos veritatis, culpa tenetur
           blanditiis reprehenderit distinctio cupiditate!
         </p>
+        <ProductList />
     </Layout>
   );
 };
