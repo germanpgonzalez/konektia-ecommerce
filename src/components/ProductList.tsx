@@ -32,7 +32,7 @@ export const ProductList = () => {
   return (
     <>
       <h3>Celulares</h3>
-      <div>
+      <ul className="grid grid-cols-4 gap-6 top-3">
         {
           products.map((product) => (
             <li key={product.id}>
@@ -40,7 +40,7 @@ export const ProductList = () => {
             </li>
           ))
         }
-      </div>
+      </ul>
 
     </>
   )
