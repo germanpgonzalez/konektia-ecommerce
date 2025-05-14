@@ -1,11 +1,13 @@
 import Layout from "../../Components/Layout"
+import { ProductList } from "../../Components/ProductList";
 
 
 const Celulares = () => {
   return (
     <>
       <Layout>
-        Página Celulares 📵
+        <h2>Nuestros Productos</h2>
+        <ProductList />
       </Layout>
     </>
   )
