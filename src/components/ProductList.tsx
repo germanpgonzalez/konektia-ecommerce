@@ -21,7 +21,6 @@ type ProductsResponse = {
 export const ProductList = () => {
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState<ProductType[]>([]);
-  const [openModal, setOpenModal] = useState(true);
   const [selectedProduct, setSelectedProduct] = useState<ProductType | null>(
     null
   );
@@ -38,11 +37,9 @@ export const ProductList = () => {
 
   const handleOpenModal = (product: ProductType) => {
     setSelectedProduct(product);
-    setOpenModal(true);
   };
   const handleCloseModal = () => {
     setSelectedProduct(null);
-    setOpenModal(false);
   };
 
   return (
