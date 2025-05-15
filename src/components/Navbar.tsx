@@ -1,9 +1,13 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { GrCart } from "react-icons/gr";
 import { IoIosLogIn } from "react-icons/io";
+import { Cart } from "../Components/Cart";
 import Logo from "../assets/logo.png";
 
 const Navbar = () => {
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
   const ActiveStyle = "border-b-2 border-primario pb-1 ";
 
   return (
@@ -61,11 +65,12 @@ const Navbar = () => {
             <li>
               <IoIosLogIn size={25} />
             </li>
-            <li className="cursor-pointer">
+            <li className="cursor-pointer" onClick={() => setIsCartOpen(true)}>
               <GrCart size={25}  />
             </li>
           </ul>
         </div>
+        <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
       </nav>
     </header>
   );
