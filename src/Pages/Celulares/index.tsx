@@ -6,7 +6,6 @@ const Celulares = () => {
   return (
     <>
       <Layout>
-        <h2>Nuestros Productos</h2>
         <ProductList />
       </Layout>
     </>
