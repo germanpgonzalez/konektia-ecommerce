@@ -30,7 +30,7 @@ const Login = () => {
           />
           <input 
             type="submit" 
-            value="Enviar" 
+            value="Ingresar" 
             className="bg-primario text-white w-full py-2 cursor-pointer hover:opacity-80"
             onClick={(e) => handleSubmit(e)}
             />
