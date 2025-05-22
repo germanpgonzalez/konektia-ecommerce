@@ -44,7 +44,7 @@ export const ProductList = () => {
 
   return (
     <>
-     <h2 className="text-3xl font-bold text-gray-800 mb-4">Nuestros productos</h2>
+     <h2 className="text-2xl font-bold text-gray-800 mb-4 border-b-3 inline-block border-primario pb-1">Nuestros productos</h2>
       {loading ? (
         <ul className="grid grid-cols-4 gap-6 top-3">
           {[...Array(10)].map((_, index) => (

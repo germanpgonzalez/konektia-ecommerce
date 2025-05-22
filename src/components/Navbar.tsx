@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { GrCart } from "react-icons/gr";
 import { IoIosLogIn } from "react-icons/io";
 import { Cart } from "../Components/Cart";
@@ -62,8 +62,10 @@ const Navbar = () => {
         </div>
         <div>
           <ul className="flex gap-4">
-            <li>
+            <li className="cursor-pointer">
+              <Link to='/login'>
               <IoIosLogIn size={25} />
+              </Link>
             </li>
             <li className="cursor-pointer" onClick={() => setIsCartOpen(true)}>
               <GrCart size={25}  />

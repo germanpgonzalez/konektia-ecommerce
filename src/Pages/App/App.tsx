@@ -3,6 +3,7 @@ import Home from '../Home';
 import Celulares from '../Celulares';
 import Contacto from '../Contacto';
 import NotFount from '../NotFound';
+import Login from '../Login';
 import './App.css'
 
 const AppRoutes = () => {
@@ -11,6 +12,7 @@ const AppRoutes = () => {
     { path: '/', element: <Home /> },
     { path: '/celulares', element: <Celulares /> },
     { path: '/contacto', element: <Contacto /> },
+    { path: '/login', element: <Login /> },
     { path: '/*', element: <NotFount /> },
   ]);
 
@@ -20,7 +22,7 @@ const AppRoutes = () => {
 const App = () => {
 
   return (
-      <BrowserRouter>
+      <BrowserRouter basename="/konektia-ecommerce">
         <AppRoutes />
       </BrowserRouter>
   );
