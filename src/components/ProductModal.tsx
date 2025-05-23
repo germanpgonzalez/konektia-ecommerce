@@ -16,7 +16,7 @@ export const ProductModal = ({ children, onClose } : ProductModalProps) => {
 
       <div
         className="fixed top-1/2 left-1/2 z-50 transform -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-xl shadow-lg"
-        onClick={(e) => e.stopPropagation()} // evita que se cierre si hacés clic dentro
+        onClick={(e) => e.stopPropagation()}
       >
         {children}
       </div>

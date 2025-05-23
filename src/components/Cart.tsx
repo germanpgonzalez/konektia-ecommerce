@@ -1,3 +1,7 @@
+import { CartContext } from "../Context";
+import type  { ProductType }   from "../Components/ProductList";
+import { useContext } from "react";
+import CartItem from "./CartItem";
 
 type CartProps = {
     isOpen: boolean;
@@ -6,6 +10,8 @@ type CartProps = {
 
 
 export const Cart = ({isOpen, onClose} : CartProps) => {
+  const context = useContext(CartContext)
+
   return (
       <>
       <div
@@ -29,7 +35,15 @@ export const Cart = ({isOpen, onClose} : CartProps) => {
         </div>
 
         <div className="p-4">
-          <p>El carrito está vacío.</p>
+          {context && context.cartProducts.length > 0 ? (
+            context.cartProducts.map((product: ProductType) => (
+              <div className="mb-4" key={product.id}>
+                <CartItem product={product} />
+              </div>
+            ))
+          ) : (
+            <p>El carrito está vacío.</p>
+          )}
         </div>
       </div>
     </>
