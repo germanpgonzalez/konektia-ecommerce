@@ -1,4 +1,5 @@
 import { useRoutes, BrowserRouter } from 'react-router-dom';
+import { CartContextProvider } from '../../Context';
 import Home from '../Home';
 import Celulares from '../Celulares';
 import Contacto from '../Contacto';
@@ -22,9 +23,11 @@ const AppRoutes = () => {
 const App = () => {
 
   return (
+    <CartContextProvider>
       <BrowserRouter basename="/konektia-ecommerce">
         <AppRoutes />
       </BrowserRouter>
+    </CartContextProvider>
   );
 }
 
