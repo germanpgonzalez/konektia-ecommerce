@@ -40,16 +40,6 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink
-                to="/nosotros"
-                className={({ isActive }) =>
-                  isActive ? ActiveStyle : undefined
-                }
-              >
-                Nosotros
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
                 to="/contacto"
                 className={({ isActive }) =>
                   isActive ? ActiveStyle : undefined

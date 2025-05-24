@@ -1,4 +1,4 @@
-import { useRoutes, BrowserRouter } from 'react-router-dom';
+import { useRoutes, HashRouter } from 'react-router-dom';
 import { CartContextProvider } from '../../Context';
 import { ProductModalRoute } from '../../Components/ProductModalRoute';
 import Home from '../Home';
@@ -26,9 +26,10 @@ const App = () => {
 
   return (
     <CartContextProvider>
-      <BrowserRouter basename="/konektia-ecommerce">
+      {/* Uso HashRouter para que funcione Github Pages */}
+      <HashRouter basename="/konektia-ecommerce">
         <AppRoutes />
-      </BrowserRouter>
+      </HashRouter>
     </CartContextProvider>
   );
 }
