@@ -1,5 +1,6 @@
 import { useRoutes, BrowserRouter } from 'react-router-dom';
 import { CartContextProvider } from '../../Context';
+import { ProductModalRoute } from '../../Components/ProductModalRoute';
 import Home from '../Home';
 import Celulares from '../Celulares';
 import Contacto from '../Contacto';
@@ -13,6 +14,7 @@ const AppRoutes = () => {
     { path: '/', element: <Home /> },
     { path: '/celulares', element: <Celulares /> },
     { path: '/contacto', element: <Contacto /> },
+    { path: '/producto/:id', element: <ProductModalRoute /> },
     { path: '/login', element: <Login /> },
     { path: '/*', element: <NotFount /> },
   ]);

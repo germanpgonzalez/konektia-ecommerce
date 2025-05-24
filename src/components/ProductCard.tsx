@@ -1,6 +1,7 @@
 import { CartContext } from "../Context";
 import { useContext } from "react"
 import type { ProductType } from "./ProductList";
+import { Link } from "react-router-dom";
 
 type ProductCardProps = {
   product: ProductType;
@@ -27,7 +28,9 @@ export const ProductCard = ({product, onViewDetails }: ProductCardProps) => {
       <p className="text-gray-700 text-base">${product.price}</p>
       <p className="text-gray-500 text-xs mt-1 font-extralight">{product.brand}</p>
       <div className="flex gap-2 pt-4 justify-center items-center">
-        <button className="text-primario border border-primario hover:bg-primario hover:text-white rounded-2xl py-2 px-4 cursor-pointer text-sm min-w-[100px] text-center transition-colors duration-200" onClick={() => onViewDetails(product)}>Detalles</button>
+        <Link to={`/producto/${product.id}`}>
+          <button className="text-primario border border-primario hover:bg-primario hover:text-white rounded-2xl py-2 px-4 cursor-pointer text-sm min-w-[100px] text-center transition-colors duration-200" onClick={() => onViewDetails(product)}>Detalles</button>
+        </Link>
         <button className="text-white bg-primario hover:bg-primario/80 rounded-2xl py-2 px-4 cursor-pointer text-sm min-w-[100px] text-center transition-colors duration-200" onClick={() => addProductsToCart(product)}>Agregar</button>
       </div>
     </div>

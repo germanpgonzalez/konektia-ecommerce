@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useContext, useState } from "react";
+import { CartContext } from "../Context";
 import { ProductCard } from "./ProductCard";
 import { SkeletonCard } from "./SkeletonCard";
 import { ProductModal } from "./ProductModal";
@@ -14,26 +15,16 @@ export type ProductType = {
   images: string[];
 };
 
-type ProductsResponse = {
-  products: ProductType[];
-};
 
 export const ProductList = () => {
-  const [loading, setLoading] = useState(true);
-  const [products, setProducts] = useState<ProductType[]>([]);
+
   const [selectedProduct, setSelectedProduct] = useState<ProductType | null>(
     null
   );
 
-  useEffect(() => {
-    fetch("https://dummyjson.com/products/category/smartphones")
-      .then((response) => response.json())
-      .then((data: ProductsResponse) => {
-        setProducts(data.products);
-        setLoading(false);
-      })
-      .catch((error) => console.log(error));
-  }, []);
+  const context = useContext(CartContext);
+
+
 
   const handleOpenModal = (product: ProductType) => {
     setSelectedProduct(product);
@@ -45,7 +36,7 @@ export const ProductList = () => {
   return (
     <>
      <h2 className="text-2xl font-bold text-gray-800 mb-4 border-b-3 inline-block border-primario pb-1">Nuestros productos</h2>
-      {loading ? (
+      {context?.loading ? (
         <ul className="grid grid-cols-4 gap-6 top-3">
           {[...Array(10)].map((_, index) => (
             <li key={index}>
@@ -55,7 +46,7 @@ export const ProductList = () => {
         </ul>
       ) : (
         <ul className="grid grid-cols-4 gap-6 top-3">
-          {products.map((product) => (
+          {context?.products.map((product) => (
             <li key={product.id}>
               <ProductCard product={product} onViewDetails={handleOpenModal} />
             </li>
