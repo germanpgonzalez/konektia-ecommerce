@@ -27,7 +27,7 @@ const App = () => {
   return (
     <CartContextProvider>
       {/* Uso HashRouter para que funcione Github Pages */}
-      <HashRouter basename="/konektia-ecommerce">
+      <HashRouter>
         <AppRoutes />
       </HashRouter>
     </CartContextProvider>
