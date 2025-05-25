@@ -11,6 +11,7 @@ type CartContextType = {
   products: ProductType[];
   setProducts: React.Dispatch<React.SetStateAction<ProductType[]>>;
   loading: boolean;
+  handleCleanCart: () => void;
 };
 
 export const CartContext = createContext<CartContextType | null>(null);
@@ -32,6 +33,9 @@ export const CartContextProvider = ({ children }: CartContextProviderProps) => {
   //Estado global de los productos
   const [products, setProducts] = useState<ProductType[]>([]);
 
+  const handleCleanCart = () => {
+    setCartProducts([]);
+  }
 
 
   return (
@@ -41,7 +45,8 @@ export const CartContextProvider = ({ children }: CartContextProviderProps) => {
         setCartProducts,
         products,
         setProducts,
-        loading
+        loading,
+        handleCleanCart
       }}
     >
       {children}

@@ -1,26 +1,24 @@
 import { CartContext } from "../Context";
-import type  { ProductType }   from "../Components/ProductList";
+import type { ProductType } from "../Components/ProductList";
 import { useContext } from "react";
 import CartItem from "./CartItem";
 
 type CartProps = {
-    isOpen: boolean;
-    onClose: () => void;
-}
+  isOpen: boolean;
+  onClose: () => void;
+};
 
-
-export const Cart = ({isOpen, onClose} : CartProps) => {
-  const context = useContext(CartContext)
+export const Cart = ({ isOpen, onClose }: CartProps) => {
+  const context = useContext(CartContext);
 
   return (
-      <>
+    <>
       <div
         className={`fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity ${
           isOpen ? "opacity-65" : "opacity-0 pointer-events-none"
         }`}
         onClick={onClose}
       />
-
 
       <div
         className={`fixed top-0 right-0 h-full w-80 bg-white shadow-xl z-50 transform transition-transform duration-300 ${
@@ -29,7 +27,10 @@ export const Cart = ({isOpen, onClose} : CartProps) => {
       >
         <div className="flex justify-between items-center p-4 border-b">
           <h2 className="text-lg font-semibold">Carrito de Compras</h2>
-          <button onClick={onClose} className="text-gray-600 hover:text-red-500">
+          <button
+            onClick={onClose}
+            className="text-gray-600 hover:text-red-500"
+          >
             ✕
           </button>
         </div>
@@ -44,10 +45,21 @@ export const Cart = ({isOpen, onClose} : CartProps) => {
           ) : (
             <p>El carrito está vacío.</p>
           )}
+          {context && context.cartProducts.length > 0 && (
+            <div className="flex flex-col gap-4 mt-6">
+            <button
+              className="text-primario border border-primario w-full py-2 cursor-pointer"
+              onClick={() => context?.handleCleanCart()}
+            >
+              Vaciar carrito
+            </button>
+            <button className="bg-primario text-white w-full py-2 cursor-pointer">
+              Comprar
+            </button>
+          </div>
+          )}
         </div>
       </div>
     </>
   );
-}
-
-
+};
