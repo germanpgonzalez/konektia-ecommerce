@@ -9,9 +9,9 @@ El proyecto fue realizado React Js, TypeScript y Tailwind Css.
 
 ## Screenshots
 
-![App Screenshot](./assets/screen1.png)
-![App Screenshot](./assets/screen2.png)
-![App Screenshot](./assets/screen3.png)
+![App Screenshot](./src/assets/screen1.png)
+![App Screenshot](./src/assets/screen2.png)
+![App Screenshot](./src/assets/screen3.png)
 
 
 ## Utilidades
