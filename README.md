@@ -7,11 +7,13 @@ productos, y permita a los usuarios añadir productos a un carrito de compras.
 El proyecto fue realizado React Js, TypeScript y Tailwind Css.
 
 
+
 ## Screenshots
 
-![App Screenshot](./src/assets/screen1.png)
-![App Screenshot](./src/assets/screen2.png)
-![App Screenshot](./src/assets/screen3.png)
+![App Screenshot](https://github.com/germanpgonzalez/konektia-ecommerce/blob/main/src/assets/screen1.png?raw=true)
+![App Screenshot](https://github.com/germanpgonzalez/konektia-ecommerce/blob/main/src/assets/screen2.png?raw=true)
+![App Screenshot](https://github.com/germanpgonzalez/konektia-ecommerce/blob/main/src/assets/screen3.png?raw=true)
+
 
 
 ## Utilidades
