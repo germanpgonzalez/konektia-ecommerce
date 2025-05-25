@@ -12,6 +12,7 @@ type CartContextType = {
   setProducts: React.Dispatch<React.SetStateAction<ProductType[]>>;
   loading: boolean;
   handleCleanCart: () => void;
+  removeProductFromCart: (productId: number) => void;
 };
 
 export const CartContext = createContext<CartContextType | null>(null);
@@ -37,6 +38,12 @@ export const CartContextProvider = ({ children }: CartContextProviderProps) => {
     setCartProducts([]);
   }
 
+  const removeProductFromCart = (productId: number) => {
+    setCartProducts((prevCart) =>
+      prevCart.filter((product) => product.id !== productId)
+    );
+  }
+
 
   return (
     <CartContext.Provider
@@ -46,7 +53,8 @@ export const CartContextProvider = ({ children }: CartContextProviderProps) => {
         products,
         setProducts,
         loading,
-        handleCleanCart
+        handleCleanCart,
+        removeProductFromCart
       }}
     >
       {children}

@@ -1,11 +1,16 @@
+import { useContext } from "react";
+import { CartContext } from "../Context";
 import type { ProductType } from "./ProductList";
-import { IoCloseSharp } from "react-icons/io5";
+import { TiDelete } from "react-icons/ti";
 
 type CartItemProps = {
   product: ProductType;
 };
 
 const CartItem = ({product}: CartItemProps) => {
+
+  const context = useContext(CartContext);
+
   return (
     <div className="flex justify-between items-center">
         <div className="flex items-center gap-2">
@@ -16,7 +21,7 @@ const CartItem = ({product}: CartItemProps) => {
         </div>
         <div className="flex items-center gap-2">
             <p className="text-lg font-medium">${product.price}</p>
-            <IoCloseSharp className="text-black cursor-pointer h-6 w-6"/>
+            <TiDelete className="text-red-700 cursor-pointer h-6 w-6" onClick={() => context?.removeProductFromCart(product.id)}/>
         </div>
     </div>
   )
