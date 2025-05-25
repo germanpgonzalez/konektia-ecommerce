@@ -10,9 +10,9 @@ El proyecto fue realizado React Js, TypeScript y Tailwind Css.
 
 ## Screenshots
 
-![App Screenshot](https://github.com/germanpgonzalez/konektia-ecommerce/blob/main/src/assets/screen1.png?raw=true)
-![App Screenshot](https://github.com/germanpgonzalez/konektia-ecommerce/blob/main/src/assets/screen2.png?raw=true)
-![App Screenshot](https://github.com/germanpgonzalez/konektia-ecommerce/blob/main/src/assets/screen3.png?raw=true)
+![App Screenshot](https://raw.githubusercontent.com/germanpgonzalez/konektia-ecommerce/refs/heads/master/src/assets/screen1.png)
+![App Screenshot](https://raw.githubusercontent.com/germanpgonzalez/konektia-ecommerce/refs/heads/master/src/assets/screen2.png)
+![App Screenshot](https://raw.githubusercontent.com/germanpgonzalez/konektia-ecommerce/refs/heads/master/src/assets/screen3.png)
 
 
 
