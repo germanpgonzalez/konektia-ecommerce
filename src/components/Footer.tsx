@@ -15,7 +15,9 @@ const Footer = () => {
             </ul>
         </div>
         <div className="text-center mt-4">
+            <h4>Creado por  <a href="mailto:germangonzalezdev@gmail.com"><strong>Germán Pablo Gonzalez</strong></a></h4>
             <p>© 2025 Konektia Smartphones. Todos los derechos reservados.</p>
+            <p>Talento Tech - 2025</p>
         </div>
     </footer>
   )
