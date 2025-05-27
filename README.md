@@ -5,6 +5,13 @@ Proyecto Konectia Ecommerce para el curso React JS de Talento Tech año 2025.
 Este proyecto consiste en la creación de un sitio web de e-commerce dinámico e interactivo, que consuma datos de una API REST para mostrar
 productos, y permita a los usuarios añadir productos a un carrito de compras.
 El proyecto fue realizado React Js, TypeScript y Tailwind Css.
+El proyecto tiene rutas dinámicas para mostrar información de cada producto por su id, además de una ruta protegida para el panel
+de administración del administrador:
+
+Para probar el login:
+
+usuario: prueba
+contraseña: prueba
 
 
 
