@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { GrCart } from "react-icons/gr";
-import { IoIosLogIn } from "react-icons/io";
+import { RiLoginBoxLine } from "react-icons/ri";
+import { RiLogoutBoxLine } from "react-icons/ri";
 import { Cart } from "../Components/Cart";
+import { useAuth } from "../AuthContext";
 import Logo from "../assets/logo.png";
 
 const Navbar = () => {
+  const auth = useAuth();
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   const ActiveStyle = "border-b-2 border-primario pb-1 ";
@@ -52,13 +55,21 @@ const Navbar = () => {
         </div>
         <div>
           <ul className="flex gap-4">
-            <li className="cursor-pointer">
-              <Link to='/login'>
-              <IoIosLogIn size={25} />
-              </Link>
-            </li>
+            {auth?.user ? (
+              <li className="cursor-pointer">
+                <Link to="/logout">
+                  <RiLogoutBoxLine size={25} />
+                </Link>
+              </li>
+            ) : (
+              <li className="cursor-pointer">
+                <Link to="/login">
+                  <RiLoginBoxLine size={25} />
+                </Link>
+              </li>
+            )}
             <li className="cursor-pointer" onClick={() => setIsCartOpen(true)}>
-              <GrCart size={25}  />
+              <GrCart size={25} />
             </li>
           </ul>
         </div>
