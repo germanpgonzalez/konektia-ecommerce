@@ -11,6 +11,7 @@ import Logout from "../Logout";
 import Admin from "../Admin";
 import ProtectedRoute from "../../Components/ProtectedRoute";
 import "./App.css";
+import { AdminProductProvider } from "../../AdminProductContext";
 
 const AppRoutes = () => {
   let routes = useRoutes([
@@ -22,7 +23,9 @@ const AppRoutes = () => {
     { path: "/logout", element: <Logout /> },
     { path: "/admin",  element: (
         <ProtectedRoute>
-          <Admin />
+          <AdminProductProvider>
+            <Admin />
+          </AdminProductProvider>
         </ProtectedRoute>
       ),},
     { path: "/*", element: <NotFount /> },

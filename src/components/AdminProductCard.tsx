@@ -1,25 +1,11 @@
-import { CartContext } from "../Context";
-import { useContext } from "react"
-import type { ProductType } from "./ProductList";
+import type { AdminProductType } from "../types/AdminProductType";
 import { Link } from "react-router-dom";
 
 type ProductCardProps = {
-  product: ProductType;
-  onViewDetails: (product: ProductType) => void;
+  product: AdminProductType;
 };
 
-export const AdminProductCard = ({product, onViewDetails }: ProductCardProps) => {
-
-  const context = useContext(CartContext)
-
-  if (!context) {
-    return <p>Error: contexto del carrito no disponible</p>;
-  }
-
-  const addProductsToCart = (product: ProductType) => {
-    context.setCartProducts([...context.cartProducts, product]);
-    console.log('CARD: ', context.cartProducts)
-  }
+export const AdminProductCard = ({product}: ProductCardProps) => {
 
   return (
     <div className="bg-white shadow-md rounded-lg p-3 text-center flex flex-col justify-center items-center max-w-sm mt-3">
@@ -29,9 +15,9 @@ export const AdminProductCard = ({product, onViewDetails }: ProductCardProps) =>
       <p className="text-gray-500 text-xs mt-1 font-extralight">{product.brand}</p>
       <div className="flex gap-2 pt-4 justify-center items-center">
         <Link to={`/producto/${product.id}`}>
-          <button className="text-primario border border-primario hover:bg-primario hover:text-white rounded-2xl py-2 px-4 cursor-pointer text-sm min-w-[100px] text-center transition-colors duration-200" onClick={() => onViewDetails(product)}>Editar</button>
+          <button className="text-primario border border-primario hover:bg-primario hover:text-white rounded-2xl py-2 px-4 cursor-pointer text-sm min-w-[100px] text-center transition-colors duration-200" onClick={() => console.log("editar")}>Editar</button>
         </Link>
-        <button className="text-white bg-primario hover:bg-primario/80 rounded-2xl py-2 px-4 cursor-pointer text-sm min-w-[100px] text-center transition-colors duration-200" onClick={() => addProductsToCart(product)}>Eliminar</button>
+        <button className="text-white bg-primario hover:bg-primario/80 rounded-2xl py-2 px-4 cursor-pointer text-sm min-w-[100px] text-center transition-colors duration-200">Eliminar</button>
       </div>
     </div>
   );
