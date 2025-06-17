@@ -15,7 +15,7 @@ type AdminProductContextType = {
 const AdminProductContext = createContext<AdminProductContextType | null>(null);
 
 // URL base de la API mock
-const API_URL = "https://684f2f66f0c9c9848d2a4f8e.mockapi.io/products/products";
+const API_URL = "https://684f2f66f0c9c9848d2a4f8e.mockapi.io/products/products"; 
 
 // Función para adaptar los datos de MockAPI al tipo AdminProductType
 const adaptProduct = (item: any): AdminProductType => ({
