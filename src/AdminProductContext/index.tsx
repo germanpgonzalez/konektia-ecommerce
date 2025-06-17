@@ -20,7 +20,7 @@ const API_URL = "https://684f2f66f0c9c9848d2a4f8e.mockapi.io/products/products";
 // Función para adaptar los datos de MockAPI al tipo AdminProductType
 const adaptProduct = (item: any): AdminProductType => ({
   id: String(item.id),
-  title: item.name || "Sin nombre", 
+  title: item.title || "Sin nombre", 
   price: Number(item.price) || 0,
   description: item.description || "Sin descripción",
   brand: item.brand || "Genérica",
@@ -49,15 +49,18 @@ export const AdminProductProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const createProduct = async (product: Omit<AdminProductType, "id" | "images">) => {
-    const res = await fetch(API_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(product),
-    });
-    const created = await res.json();
-    const adapted = adaptProduct(created);
-    setProducts((prev) => [...prev, adapted]);
-  };
+  const res = await fetch(API_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      ...product,
+      image: product.thumbnail, // 👈 clave: enviar el campo como 'image'
+    }),
+  });
+  const created = await res.json();
+  const adapted = adaptProduct(created);
+  setProducts((prev) => [...prev, adapted]);
+};
 
   const updateProduct = async (product: AdminProductType) => {
     const res = await fetch(`${API_URL}/${product.id}`, {
