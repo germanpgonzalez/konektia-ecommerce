@@ -22,7 +22,7 @@ export const ProductCard = ({ product, onViewDetails }: ProductCardProps) => {
 
   return (
     <div className="bg-white shadow-md rounded-lg p-3 text-center flex flex-col justify-center items-center max-w-sm mt-3">
-      <img src={product.thumbnail} alt={product.title} />
+      <img src={product.thumbnail} alt={product.title} className="w-full h-48 object-contain rounded"/>
       <h2 className="text-lg font-semibold mt-2">{product.title}</h2>
       <p className="text-gray-700 text-base">${product.price}</p>
       <p className="text-gray-500 text-xs mt-1 font-extralight">
