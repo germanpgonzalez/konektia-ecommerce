@@ -1,8 +1,8 @@
-import { useContext, useState } from "react";
-import { CartContext } from "../Context";
+import { useState } from "react";
 import { ProductCard } from "./ProductCard";
 import { SkeletonCard } from "./SkeletonCard";
 import { ProductModal } from "./ProductModal";
+import { useProducts } from "../Hooks/useProducts";
 
 export type ProductType = {
   id: number;
@@ -22,7 +22,7 @@ export const ProductList = () => {
     null
   );
 
-  const context = useContext(CartContext);
+  const { products, loading } = useProducts();
 
 
 
@@ -36,7 +36,7 @@ export const ProductList = () => {
   return (
     <>
      <h2 className="text-2xl font-bold text-gray-800 mb-4 border-b-3 inline-block border-primario pb-1">Nuestros productos</h2>
-      {context?.loading ? (
+      {loading ? (
         <ul className="grid grid-cols-4 gap-6 top-3">
           {[...Array(10)].map((_, index) => (
             <li key={index}>
@@ -46,7 +46,7 @@ export const ProductList = () => {
         </ul>
       ) : (
         <ul className="grid grid-cols-4 gap-6 top-3">
-          {context?.products.map((product) => (
+          {products.map((product) => (
             <li key={product.id}>
               <ProductCard product={product} onViewDetails={handleOpenModal} />
             </li>
