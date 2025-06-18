@@ -58,7 +58,7 @@ export const ProductFormModal = ({ isOpen, onClose, onCreate }: ProductFormModal
             required
           />
           <input
-            type="number"
+            type="text"
             placeholder="Precio *"
             value={price}
             onChange={(e) => setPrice(Number(e.target.value))}
