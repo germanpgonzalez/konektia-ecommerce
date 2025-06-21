@@ -14,8 +14,8 @@ const Home = () => {
 
   return (
     <Layout>
-      <section className="flex flex-col md:flex-row items-center justify-between gap-8 px-6 py-8 mb-3">
-        <div className="md:w-1/2 text-center md:text-left">
+      <section className="flex flex-col md:flex-row items-center justify-between gap-8 px-4 sm:px-6 py-8 mb-6">
+        <div className="w-full md:w-1/2 text-center md:text-left">
           <h1 className="text-4xl font-bold text-gray-800 mb-4">
             La mejor tecnología, a un clic de distancia
           </h1>
@@ -35,7 +35,7 @@ const Home = () => {
           <img
             src={HeroImg}
             alt="Smartphone"
-            className="w-full max-w-2xl mx-auto"
+            className="w-full h-auto max-w-2xl mx-auto"
           />
         </div>
       </section>

@@ -44,17 +44,17 @@ export const ProductList = () => {
       <h2 className="text-2xl font-bold text-gray-800 mb-4 border-b-3 inline-block border-primario pb-1">
         Nuestros productos
       </h2>
-      <div className="flex mt-3 mb-6 items-center gap-2">
+      <div className="flex flex-col md:flex-row mt-3 mb-6 items-center gap-2">
         <input
           type="text"
           placeholder="Buscar modelo o marca..."
-          className="w-1/2 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primario transition duration-200"
+          className="w-full md:w-1/2 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primario transition duration-200"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </div>
       {loading ? (
-        <ul className="grid grid-cols-4 gap-6 top-3">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {[...Array(10)].map((_, index) => (
             <li key={index}>
               <SkeletonCard />
@@ -62,7 +62,7 @@ export const ProductList = () => {
           ))}
         </ul>
       ) : filteredProducts.length > 0 ? (
-        <ul className="grid grid-cols-4 gap-6 top-3">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {filteredProducts.map((product) => (
             <li key={product.id}>
               <ProductCard product={product} onViewDetails={handleOpenModal} />
@@ -82,7 +82,7 @@ export const ProductList = () => {
               <img
                 src={selectedProduct.thumbnail}
                 alt={selectedProduct.title}
-                className="w-full max-w-xs rounded-lg"
+                className="w-full max-w-xs h-auto object-contain rounded-lg"
               />
             </div>
 
