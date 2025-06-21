@@ -1,8 +1,17 @@
+import { useRef } from "react";
 import Layout from "../../Components/Layout";
 import { ProductList } from "../../Components/ProductList";
 import HeroImg from "../../assets/hero.png";
 
+
 const Home = () => {
+
+  const productosRef = useRef<HTMLDivElement>(null);
+
+  const scrollToProductos = () => {
+    productosRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <Layout>
       <section className="flex flex-col md:flex-row items-center justify-between gap-8 px-6 py-8 mb-3">
@@ -14,12 +23,12 @@ const Home = () => {
             Descubrí nuestros smartphones al mejor precio y con la mejor calidad
             del mercado.
           </p>
-          <a
-            href="#productos"
-            className="bg-primario text-white py-2 px-4 rounded-2xl hover:bg-primario/80 transition duration-200 inline-block"
+          <button
+            onClick={scrollToProductos}
+            className="bg-primario text-white py-2 px-4 rounded-2xl hover:bg-primario/80 transition duration-200 inline-block cursor-pointer"
           >
             Ver productos
-          </a>
+          </button>
         </div>
 
         <div className="md:w-1/2">
@@ -30,7 +39,7 @@ const Home = () => {
           />
         </div>
       </section>
-      <div id="productos">
+      <div ref={productosRef}>
         <ProductList />
       </div>
     </Layout>
