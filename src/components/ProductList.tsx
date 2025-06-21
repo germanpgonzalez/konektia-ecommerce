@@ -4,6 +4,7 @@ import { SkeletonCard } from "./SkeletonCard";
 import { ProductModal } from "./ProductModal";
 import { useProducts } from "../Hooks/useProducts";
 
+
 export type ProductType = {
   id: number;
   title: string;
@@ -15,27 +16,43 @@ export type ProductType = {
   images: string[];
 };
 
-
 export const ProductList = () => {
-
   const [selectedProduct, setSelectedProduct] = useState<ProductType | null>(
     null
   );
 
+  const [searchTerm, setSearchTerm] = useState("");
+
   const { products, loading } = useProducts();
-
-
 
   const handleOpenModal = (product: ProductType) => {
     setSelectedProduct(product);
   };
+
   const handleCloseModal = () => {
     setSelectedProduct(null);
   };
 
+  const filteredProducts = products.filter(
+    (product) =>
+      product.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      product.brand.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <>
-     <h2 className="text-2xl font-bold text-gray-800 mb-4 border-b-3 inline-block border-primario pb-1">Nuestros productos</h2>
+      <h2 className="text-2xl font-bold text-gray-800 mb-4 border-b-3 inline-block border-primario pb-1">
+        Nuestros productos
+      </h2>
+      <div className="flex mt-3 mb-6 items-center gap-2">
+        <input
+          type="text"
+          placeholder="Buscar modelo o marca..."
+          className="w-1/2 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primario transition duration-200"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+      </div>
       {loading ? (
         <ul className="grid grid-cols-4 gap-6 top-3">
           {[...Array(10)].map((_, index) => (
@@ -44,14 +61,18 @@ export const ProductList = () => {
             </li>
           ))}
         </ul>
-      ) : (
+      ) : filteredProducts.length > 0 ? (
         <ul className="grid grid-cols-4 gap-6 top-3">
-          {products.map((product) => (
+          {filteredProducts.map((product) => (
             <li key={product.id}>
               <ProductCard product={product} onViewDetails={handleOpenModal} />
             </li>
           ))}
         </ul>
+      ) : (
+        <p className="text-center text-gray-500 text-lg mt-6">
+          No se encontraron productos con ese nombre o marca.
+        </p>
       )}
 
       {selectedProduct && (

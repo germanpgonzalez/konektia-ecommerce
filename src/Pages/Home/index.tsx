@@ -40,7 +40,7 @@ const Home = () => {
         </div>
       </section>
       <div ref={productosRef}>
-        <ProductList />
+        <ProductList/>
       </div>
     </Layout>
   );
