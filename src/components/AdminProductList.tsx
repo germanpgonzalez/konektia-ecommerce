@@ -12,12 +12,14 @@ export const AdminProductList = () => {
 
   return (
     <>
-      <button
-        onClick={() => setIsModalOpen(true)}
-        className="mb-5 px-4 py-2 bg-primario text-white rounded hover:bg-primario/80 flex mt-5"
-      >
-        Agregar Producto
-      </button>
+      <div className="flex justify-center sm:justify-start mb-5 mt-5">
+        <button
+          onClick={() => setIsModalOpen(true)}
+          className="px-4 py-2 bg-primario text-white rounded hover:bg-primario/80"
+        >
+          Agregar Producto
+        </button>
+      </div>
 
       <ProductFormModal
         isOpen={isModalOpen}
@@ -30,23 +32,20 @@ export const AdminProductList = () => {
           No hay productos cargados aún.
         </p>
       )}
-      {loading ? (
-        <ul className="grid grid-cols-4 gap-6 top-3">
-          {[...Array(10)].map((_, index) => (
-            <li key={index}>
-              <SkeletonCard />
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <ul className="grid grid-cols-4 gap-6 top-3">
-          {products.map((product: AdminProductType) => (
-            <li key={product.id}>
-              <AdminProductCard product={product} />
-            </li>
-          ))}
-        </ul>
-      )}
+
+      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-3">
+        {loading
+          ? [...Array(10)].map((_, index) => (
+              <li key={index}>
+                <SkeletonCard />
+              </li>
+            ))
+          : products.map((product: AdminProductType) => (
+              <li key={product.id}>
+                <AdminProductCard product={product} />
+              </li>
+            ))}
+      </ul>
     </>
   );
 };

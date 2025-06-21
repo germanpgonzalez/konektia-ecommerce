@@ -17,7 +17,6 @@ export const ProductCard = ({ product, onViewDetails }: ProductCardProps) => {
 
   const addProductsToCart = (product: ProductType) => {
     context.setCartProducts([...context.cartProducts, product]);
-    console.log("CARD: ", context.cartProducts);
   };
 
   return (
