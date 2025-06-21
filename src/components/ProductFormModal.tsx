@@ -54,7 +54,7 @@ export const ProductFormModal = ({ isOpen, onClose, onCreate }: ProductFormModal
             placeholder="Título *"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="border rounded px-3 py-2"
+            className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primario transition duration-200"
             required
           />
           <input
@@ -62,7 +62,7 @@ export const ProductFormModal = ({ isOpen, onClose, onCreate }: ProductFormModal
             placeholder="Precio *"
             value={price}
             onChange={(e) => setPrice(Number(e.target.value))}
-            className="border rounded px-3 py-2"
+            className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primario transition duration-200"
             required
             min={0}
             step={0.01}
@@ -72,7 +72,7 @@ export const ProductFormModal = ({ isOpen, onClose, onCreate }: ProductFormModal
             placeholder="Marca *"
             value={brand}
             onChange={(e) => setBrand(e.target.value)}
-            className="border rounded px-3 py-2"
+            className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primario transition duration-200"
             required
           />
           <input
@@ -80,7 +80,7 @@ export const ProductFormModal = ({ isOpen, onClose, onCreate }: ProductFormModal
             placeholder="Categoría *"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            className="border rounded px-3 py-2"
+            className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primario transition duration-200"
             required
           />
           <input
@@ -88,13 +88,13 @@ export const ProductFormModal = ({ isOpen, onClose, onCreate }: ProductFormModal
             placeholder="URL Thumbnail"
             value={thumbnail}
             onChange={(e) => setThumbnail(e.target.value)}
-            className="border rounded px-3 py-2"
+            className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primario transition duration-200"
           />
           <textarea
             placeholder="Descripción"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            className="border rounded px-3 py-2 resize-none"
+            className="border rounded px-3 py-2 resize-none focus:outline-none focus:ring-2 focus:ring-primario transition duration-200"
           />
           <div className="flex justify-end gap-2 pt-4">
             <button type="button" onClick={onClose} className="px-4 py-2 rounded border">Cancelar</button>

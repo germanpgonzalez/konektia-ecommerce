@@ -26,7 +26,7 @@ export const AdminEditForm = ({ product, onSave }: Props) => {
         name="title"
         value={formData.title}
         onChange={handleChange}
-        className="border p-2 rounded"
+        className="border p-2 rounded focus:outline-none focus:ring-2 focus:ring-primario transition duration-200"
         placeholder="Título"
       />
       <input
@@ -34,7 +34,7 @@ export const AdminEditForm = ({ product, onSave }: Props) => {
         name="brand"
         value={formData.brand}
         onChange={handleChange}
-        className="border p-2 rounded"
+        className="border p-2 rounded focus:outline-none focus:ring-2 focus:ring-primario transition duration-200"
         placeholder="Marca"
       />
       <input
@@ -42,7 +42,7 @@ export const AdminEditForm = ({ product, onSave }: Props) => {
         name="price"
         value={formData.price}
         onChange={handleChange}
-        className="border p-2 rounded"
+        className="border p-2 rounded focus:outline-none focus:ring-2 focus:ring-primario transition duration-200"
         placeholder="Precio"
       />
       <input
@@ -50,14 +50,14 @@ export const AdminEditForm = ({ product, onSave }: Props) => {
         name="thumbnail"
         value={formData.thumbnail}
         onChange={handleChange}
-        className="border p-2 rounded"
+        className="border p-2 rounded focus:outline-none focus:ring-2 focus:ring-primario transition duration-200"
         placeholder="URL de imagen"
       />
       <textarea
         name="description"
         value={formData.description}
         onChange={handleChange}
-        className="border p-2 rounded"
+        className="border p-2 rounded focus:outline-none focus:ring-2 focus:ring-primario transition duration-200"
         placeholder="Descripción"
       />
       <button type="submit" className="bg-primario text-white py-2 px-4 rounded hover:bg-primario/80">
