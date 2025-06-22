@@ -54,7 +54,7 @@ export const ProductList = () => {
         />
       </div>
       {loading ? (
-        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {[...Array(10)].map((_, index) => (
             <li key={index}>
               <SkeletonCard />
@@ -62,7 +62,7 @@ export const ProductList = () => {
           ))}
         </ul>
       ) : filteredProducts.length > 0 ? (
-        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {filteredProducts.map((product) => (
             <li key={product.id}>
               <ProductCard product={product} onViewDetails={handleOpenModal} />
