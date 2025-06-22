@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import type { ReactNode } from "react";
 import type { AdminProductType } from "../types/AdminProductType";
+import toast from "react-hot-toast";
 
 // Tipado del contexto
 type AdminProductContextType = {
@@ -54,12 +55,13 @@ export const AdminProductProvider = ({ children }: { children: ReactNode }) => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       ...product,
-      image: product.thumbnail, // 👈 clave: enviar el campo como 'image'
+      image: product.thumbnail, 
     }),
   });
   const created = await res.json();
   const adapted = adaptProduct(created);
   setProducts((prev) => [...prev, adapted]);
+  toast.success("Producto creado con éxito ✅");
 };
 
   const updateProduct = async (product: AdminProductType) => {
@@ -73,6 +75,7 @@ export const AdminProductProvider = ({ children }: { children: ReactNode }) => {
     setProducts((prev) =>
       prev.map((p) => (p.id === adapted.id ? adapted : p))
     );
+    toast.success("Producto modificado con éxito ✅");
   };
 
   const deleteProduct = async (id: string) => {
@@ -80,6 +83,15 @@ export const AdminProductProvider = ({ children }: { children: ReactNode }) => {
       method: "DELETE",
     });
     setProducts((prev) => prev.filter((p) => p.id !== id));
+     toast.custom((t) => (
+      <div
+        className={`${
+          t.visible ? "animate-enter" : "animate-leave"
+        } bg-red-100 border border-red-400 text-red-800 px-4 py-2 rounded shadow-lg`}
+      >
+        ❌ Producto eliminado
+      </div>
+    ));
   };
 
   useEffect(() => {

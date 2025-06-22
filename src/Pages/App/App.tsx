@@ -10,8 +10,9 @@ import Login from "../Login";
 import Logout from "../Logout";
 import Admin from "../Admin";
 import ProtectedRoute from "../../Components/ProtectedRoute";
-import "./App.css";
 import { AdminProductProvider } from "../../AdminProductContext";
+import { Toaster } from "react-hot-toast";
+import "./App.css";
 
 const AppRoutes = () => {
   let routes = useRoutes([
@@ -41,6 +42,7 @@ const App = () => {
       <HashRouter>
         <AuthContextProvider>
           <AppRoutes />
+          <Toaster position="top-right" />
         </AuthContextProvider>
       </HashRouter>
     </CartContextProvider>

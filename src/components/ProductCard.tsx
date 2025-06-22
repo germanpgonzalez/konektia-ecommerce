@@ -1,6 +1,7 @@
 import { CartContext } from "../Context";
 import { useContext } from "react";
 import type { ProductType } from "./ProductList";
+import toast from "react-hot-toast";
 
 
 type ProductCardProps = {
@@ -17,6 +18,7 @@ export const ProductCard = ({ product, onViewDetails }: ProductCardProps) => {
 
   const addProductsToCart = (product: ProductType) => {
     context.setCartProducts([...context.cartProducts, product]);
+    toast.success("Producto agregado al carrito");
   };
 
   return (

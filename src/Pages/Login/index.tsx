@@ -17,7 +17,7 @@ const Login = () => {
 
   return (
     <Layout>
-      <div className="min-h-screen flex items-center justify-center px-4">
+      <div className="min-h-screen flex items-center justify-center px-4 -mt-40">
         <form
           onSubmit={handleSubmit}
           className="bg-white shadow-md rounded-lg p-6 w-full max-w-md flex flex-col gap-4"
